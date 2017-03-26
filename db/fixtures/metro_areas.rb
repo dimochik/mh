@@ -1,0 +1,15 @@
+MetroArea.seed(:id,
+            {id: 1, state_id: 13, name: 'Blackfoot'},
+            {id: 2, state_id: 13, name: 'Boise City'},
+            {id: 3, state_id: 13, name: 'Burley'},
+            {id: 4, state_id: 13, name: "Coeur d'Alene"},
+            {id: 5, state_id: 13, name: 'Hailey'},
+            {id: 6, state_id: 13, name: 'Idaho Falls'},
+            {id: 7, state_id: 13, name: 'Lewiston'},
+            {id: 8, state_id: 13, name: 'Moscow'},
+            {id: 9, state_id: 13, name: 'Mountain Home'},
+            {id: 10, state_id: 13, name: 'Pocatello'},
+            {id: 11, state_id: 13, name: 'Rexburg'},
+            {id: 12, state_id: 13, name: 'Sandpoint'},
+            {id: 13, state_id: 13, name: 'Twin Falls'}
+)

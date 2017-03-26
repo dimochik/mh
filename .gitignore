@@ -15,3 +15,8 @@
 /log/*
 !/log/.keep
 /tmp
+/lib/tasks/scraper.rake
+.idea/*
+
+#rakes
+lib/tasks/scraper.rake

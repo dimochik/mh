@@ -19,6 +19,10 @@ require 'open-uri'
 require 'csv'
 gem 'pry-rails'
 gem 'httparty'
+gem 'activeadmin', github: 'activeadmin'
+gem 'devise'
+gem 'mechanize'
+gem 'seed-fu'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
