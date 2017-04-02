@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170325211961) do
+ActiveRecord::Schema.define(version: 20170401195400) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20170325211961) do
   create_table "addresses", force: :cascade do |t|
     t.integer "addressable_id",   limit: 4
     t.string  "addressable_type", limit: 255
-    t.string  "county",           limit: 255
+    t.string  "county_name",      limit: 255
     t.string  "city",             limit: 255
     t.string  "state",            limit: 255
     t.string  "number",           limit: 255
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20170325211961) do
     t.string  "street_type",      limit: 255
     t.string  "zip",              limit: 255
     t.string  "full_address",     limit: 255
+    t.integer "county_id",        limit: 4
   end
 
   create_table "admin_users", force: :cascade do |t|
@@ -66,9 +67,9 @@ ActiveRecord::Schema.define(version: 20170325211961) do
     t.integer "population",        limit: 4
     t.integer "median_home_price", limit: 4
     t.integer "household_income",  limit: 4
-    t.decimal "house_vacancy",                 precision: 10
-    t.decimal "unemployment",                  precision: 10
-    t.decimal "future_job_growth",             precision: 10
+    t.decimal "house_vacancy",                 precision: 10, scale: 2
+    t.decimal "unemployment",                  precision: 10, scale: 2
+    t.decimal "future_job_growth",             precision: 10, scale: 2
     t.string  "link",              limit: 255
   end
 
@@ -119,11 +120,19 @@ ActiveRecord::Schema.define(version: 20170325211961) do
     t.text     "geom_as_wkt",       limit: 65535
     t.string   "vendor_name",       limit: 255
     t.boolean  "duplicate"
+    t.boolean  "address_verified"
+    t.boolean  "owner_verified"
+    t.string   "m_full_address",    limit: 255
+    t.string   "mak_key",           limit: 255
   end
 
+  add_index "mobile_homes", ["mak_key"], name: "index_mobile_homes_on_mak_key", using: :btree
+
   create_table "owners", force: :cascade do |t|
-    t.string "name",      limit: 255
-    t.string "mail_name", limit: 255
+    t.string "name",                 limit: 255
+    t.string "mail_name",            limit: 255
+    t.string "second_owners_name",   limit: 255
+    t.string "corporate_owner_name", limit: 255
   end
 
   create_table "states", force: :cascade do |t|
