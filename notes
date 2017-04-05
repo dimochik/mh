@@ -1,7 +1,8 @@
 todo:
-1. finish owner load for idaho
+1. finish owner load for idaho - done
 2. Clean up next state wyoming
-2. finish county for wyoming.
+3. finish county for wyoming.
+4. Loand Wyoming
 
 
 Best States:
@@ -14,3 +15,12 @@ States to concentrate on:
 Wyoming - 13
 Minnesota - 16
 Michigan - 16
+
+
+fucked up:
+update mobile_homes set state = "South Dakota" where state = "south-carolina"
+need to re-export "South Dakota" and "south-carolina" mobile-homes
+
+Query to clean duplicates:
+select mh.id, mh.park_name, mh.duplicate, a.full_address, mh.number_of_lots, mh.vendor_url from mobile_homes mh inner join addresses a on mh.id = a.addressable_id where mh.state = "wyoming" and a.addressable_type = "MobileHome" order by park_name
+
